@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string.h> 
 
 #define KEY_SIZE 10
 
@@ -34,7 +35,7 @@ int verify_key(const char *key) {
         sum += key[i] - '0';
     }
     int check_digit = sum % 10;
-    return check_digit == (key[KEY_SIZE - 1] - '0');
+    return (check_digit == (key[KEY_SIZE - 1] - '0'));
 }
 
 int main() {
