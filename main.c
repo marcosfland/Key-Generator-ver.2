@@ -4,21 +4,24 @@
 
 #define KEY_SIZE 10
 
-// Função para gerar uma chave
-void generate_key(char *key) {
+// Function to generate a key
+void generate_key(char *key, int numCodes) {
     int sum = 0;
     srand(time(NULL));
-    for (int i = 0; i < KEY_SIZE - 1; i++) {
-        int num = rand() % 10;
-        key[i] = num + '0';
-        sum += num;
+    for (int j = 0; j < numCodes; j++) {
+        for (int i = 0; i < KEY_SIZE - 1; i++) {
+            int num = rand() % 10;
+            key[i] = num + '0';
+            sum += num;
+        }
+        // Last digit will be the sum of the previous digits modulo 10
+        key[KEY_SIZE - 1] = (sum % 10) + '0';
+        key[KEY_SIZE] = '\0'; // String terminator
+        printf("Chave gerada: %s\n", key);
     }
-    // Último dígito será a soma dos anteriores módulo 10
-    key[KEY_SIZE - 1] = (sum % 10) + '0';
-    key[KEY_SIZE] = '\0'; // Terminador de string
 }
 
-// Função para verificar a chave
+// Function to verify the key
 int verify_key(const char *key) {
     if (strlen(key) != KEY_SIZE) {
         return 0;
@@ -37,6 +40,7 @@ int verify_key(const char *key) {
 int main() {
     char key[KEY_SIZE + 1];
     int choice;
+    int numCodes;
     
     while (1) {
         printf("\nMenu:\n");
@@ -48,8 +52,9 @@ int main() {
         
         switch (choice) {
             case 1:
-                generate_key(key);
-                printf("Chave gerada: %s\n", key);
+                printf("Digite o número de códigos a serem gerados: ");
+                scanf("%d", &numCodes);
+                generate_key(key, numCodes);
                 break;
             case 2:
                 printf("Digite a chave para verificar: ");
