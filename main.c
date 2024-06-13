@@ -48,12 +48,12 @@ int main() {
         printf("1. Gerar chave\n");
         printf("2. Verificar chave\n");
         printf("3. Sair\n");
-        printf("Escolha uma opção: ");
+        printf("Escolha uma opcao: ");
         scanf("%d", &choice);
         
         switch (choice) {
             case 1:
-                printf("Digite o número de códigos a serem gerados: ");
+                printf("Digite o numero de codigos a serem gerados: ");
                 scanf("%d", &numCodes);
                 generate_key(key, numCodes);
                 break;
@@ -61,16 +61,16 @@ int main() {
                 printf("Digite a chave para verificar: ");
                 scanf("%s", key);
                 if (verify_key(key)) {
-                    printf("A chave é válida.\n");
+                    printf("A chave eh valida.\n");
                 } else {
-                    printf("A chave é inválida.\n");
+                    printf("A chave eh invalida.\n");
                 }
                 break;
             case 3:
                 printf("Saindo...\n");
                 return 0;
             default:
-                printf("Opção inválida. Tente novamente.\n");
+                printf("Opcao invalida. Tente novamente.\n");
         }
     }
     return 0;

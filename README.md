@@ -23,3 +23,7 @@ Replace `<key>` with the key you want to verify.
 
 ## Contributing
 Contributions are welcome! If you have any ideas, suggestions, or bug reports, please open an issue or submit a pull request.
+
+## PS
+This code works if you generate a single key at a time, once you start generating multiple keys, it states as an invalid key when you check the validity of the code using the 
+key verification option
